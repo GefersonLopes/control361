@@ -1,11 +1,22 @@
+import { dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+
+import { FlatCompat } from "@eslint/eslintrc";
 import js from "@eslint/js";
-import globals from "globals";
+import prettierPlugin from "eslint-plugin-prettier";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
+import simpleImportSort from "eslint-plugin-simple-import-sort";
+import unusedImports from "eslint-plugin-unused-imports";
+import globals from "globals";
 import tseslint from "typescript-eslint";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const compat = new FlatCompat({ baseDirectory: __dirname });
+
 export default [
-  tseslint.config(
+  ...tseslint.config(
     { ignores: ["dist"] },
     {
       extends: [js.configs.recommended, ...tseslint.configs.recommended],
@@ -29,12 +40,7 @@ export default [
   ),
 
   ...compat.config({
-    extends: [
-      "next/core-web-vitals",
-      "next/typescript",
-      "plugin:@typescript-eslint/recommended",
-      "eslint-config-prettier",
-    ],
+    extends: ["plugin:@typescript-eslint/recommended", "prettier"],
   }),
 
   {
@@ -45,11 +51,9 @@ export default [
     },
     rules: {
       "prettier/prettier": ["error", {}, { usePrettierrc: true }],
-
       "simple-import-sort/imports": "error",
       "simple-import-sort/exports": "error",
       "unused-imports/no-unused-imports": "error",
-
       "@typescript-eslint/no-explicit-any": "warn",
       "@typescript-eslint/explicit-function-return-type": "off",
       "@typescript-eslint/explicit-module-boundary-types": "off",
@@ -57,10 +61,10 @@ export default [
   },
 
   {
-    files: ["**/*.ts", "**/*.tsx"],
+    files: ["**/*.{ts,tsx}"],
     languageOptions: {
       parserOptions: {
-        project: "./tsconfig.json",
+        project: ["./tsconfig.app.json", "./tsconfig.node.json"],
         tsconfigRootDir: __dirname,
       },
     },
