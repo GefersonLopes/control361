@@ -3,7 +3,7 @@ import { useState } from "react";
 import Button from "../../ui/Button";
 import Radio from "../../ui/Radio";
 import SearchInput from "../../ui/SearchInput";
-import TitlePage from "../Title";
+import Title from "../Title";
 
 function FilterTabs() {
   const [filter, setFilter] = useState<"tracked" | "others">("tracked");
@@ -22,7 +22,7 @@ function FilterTabs() {
         className="w-full h-full border-b border-tertiary gap-3 flex flex-col lg:flex-row items-center justify-center lg:justify-between"
       >
         <div className="w-full ls:max-w-[445px] flex flex-col lg:flex-row lg:items-center gap-2 lg:gap-30">
-          <TitlePage title="Lista" />
+          <Title title="Lista" />
 
           <fieldset className="flex gap-5" aria-labelledby="status-legend">
             <legend id="status-legend" className="sr-only">

@@ -2,7 +2,7 @@ import clsx from "clsx";
 
 import type { TitlePageProps } from "./types";
 
-function TitlePage({ title, className }: TitlePageProps) {
+function Title({ title, className }: TitlePageProps) {
   return (
     <h1
       className={clsx(
@@ -15,4 +15,4 @@ function TitlePage({ title, className }: TitlePageProps) {
   );
 }
 
-export default TitlePage;
+export default Title;

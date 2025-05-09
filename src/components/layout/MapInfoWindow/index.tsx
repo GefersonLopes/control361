@@ -27,7 +27,7 @@ export default function MapInfoWindow({
           <div className="flex justify-end px-1.5">
             <button
               onClick={onCloseClick}
-              className="text-2xl text-primary leading-none"
+              className="text-2xl text-primary leading-none cursor-pointer"
             >
               x
             </button>

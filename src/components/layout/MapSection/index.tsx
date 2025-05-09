@@ -8,6 +8,7 @@ import Spinner from "../../ui/Spinner";
 import AsyncFallback from "../AsyncFallback";
 import FallbackContainer from "../FallbackContainer";
 import MapInfoWindow from "../MapInfoWindow";
+import Title from "../Title";
 
 const containerStyle = { width: "100%", height: "100%" };
 const center = { lat: -23.55052, lng: -46.633308 };
@@ -27,6 +28,7 @@ export default function MapSection() {
         errorContent="Erro ao carregar o mapa"
         loadingContent={<Spinner />}
       >
+        <Title title="Mapa rastreador" className="mb-4 ms-2" />
         <FallbackContainer>
           <GoogleMap
             mapContainerStyle={containerStyle}
