@@ -1,13 +1,14 @@
 ::-webkit-scrollbar {
   width: 20px;
-  background-color: #001622;
+  height: 20px;
+  background-color: var(--color-dark);
 }
 
 ::-webkit-scrollbar-thumb {
   width: 20px;
   height: 137.78px;
   border-radius: 8px;
-  background-color: #002d44;
+  background-color: var(--color-quaternary);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -17,4 +18,8 @@
 
 ::-webkit-scrollbar-thumb:hover:active {
   cursor: grabbing;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: var(--color-dark);
 }
