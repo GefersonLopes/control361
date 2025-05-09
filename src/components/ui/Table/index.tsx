@@ -6,13 +6,16 @@ export function Table({ children, className }: TableProps) {
   return (
     <div
       className={clsx(
-        "mt-10 overflow-hidden rounded-2xl bg-dark border border-quaternary",
+        "mt-10 rounded-2xl bg-dark border border-quaternary",
+        "overflow-hidden",
         className,
       )}
     >
-      <table className="min-w-full text-sm border-collapse divide-y divide-x divide-quaternary">
-        {children}
-      </table>
+      <div className="max-h-[450px] lg:max-h-[70vh] overflow-y-auto">
+        <table className="min-w-full w-full text-sm border-collapse divide-y divide-x divide-quaternary">
+          {children}
+        </table>
+      </div>
     </div>
   );
 }

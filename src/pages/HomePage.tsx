@@ -9,7 +9,7 @@ function HomePage() {
       <Header title="Geferson Lopes" />
       <FilterTabs />
 
-      <section className="mx-auto w-full max-w-7xl px-8 pb-28">
+      <section className="mx-auto w-full px-8 pb-28">
         <MapSection />
         <VehicleTable />
       </section>

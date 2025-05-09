@@ -9,7 +9,8 @@ const FallbackContainer: React.FC<FallbackContainerProps> = ({
 }) => (
   <div
     className={clsx(
-      "h-[518px] overflow-hidden rounded-2xl border border-slate-700/60 flex items-center justify-center",
+      "h-[518px] lg:h-[70vh] overflow-hidden rounded-2xl border",
+      "border-slate-700/60 flex items-center justify-center",
       className,
     )}
   >
