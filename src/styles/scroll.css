@@ -1,0 +1,20 @@
+::-webkit-scrollbar {
+  width: 20px;
+  background-color: #001622;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 20px;
+  height: 137.78px;
+  border-radius: 8px;
+  background-color: #002d44;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #003b5e;
+  cursor: grab;
+}
+
+::-webkit-scrollbar-thumb:hover:active {
+  cursor: grabbing;
+}
