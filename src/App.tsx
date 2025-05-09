@@ -1,9 +1,7 @@
+import HomePage from "./pages/HomePage";
+
 function App() {
-  return (
-    <div>
-      <h1 className="text-red-500">Control 361</h1>
-    </div>
-  );
+  return <HomePage />;
 }
 
 export default App;
