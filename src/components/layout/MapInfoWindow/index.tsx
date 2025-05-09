@@ -1,13 +1,11 @@
 import { OverlayView } from "@react-google-maps/api";
 
-import type { Vehicle } from "../../../types/veicle";
+import type { MapInfoWindowProps } from "./types";
 
-interface Props {
-  item: Vehicle;
-  onCloseClick: () => void;
-}
-
-export default function MapInfoWindow({ item, onCloseClick }: Props) {
+export default function MapInfoWindow({
+  item,
+  onCloseClick,
+}: MapInfoWindowProps) {
   if (!item) return null;
 
   const { pos, placa, frota, data } = item;

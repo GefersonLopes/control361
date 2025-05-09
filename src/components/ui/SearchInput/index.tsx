@@ -1,11 +1,7 @@
 import clsx from "clsx";
-import { forwardRef, type InputHTMLAttributes } from "react";
+import { forwardRef } from "react";
 
-export interface SearchInputProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "size"> {
-  placeholder?: string;
-  size?: "sm" | "md" | "lg";
-}
+import type { SearchInputProps } from "./types";
 
 const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
   ({ placeholder = "Buscar…", size = "md", className, ...props }, ref) => {

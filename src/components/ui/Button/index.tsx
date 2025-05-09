@@ -1,11 +1,6 @@
 import clsx from "clsx";
-import type { ButtonHTMLAttributes, ReactNode } from "react";
 
-export type ButtonProps = {
-  variant?: "primary" | "secondary" | "tertiary";
-  size?: "sm" | "md" | "lg";
-  children: ReactNode;
-} & ButtonHTMLAttributes<HTMLButtonElement>;
+import type { ButtonProps } from "./types";
 
 export default function Button({
   variant = "primary",

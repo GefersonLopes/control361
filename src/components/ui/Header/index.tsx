@@ -1,11 +1,7 @@
 import clsx from "clsx";
-import type { ReactNode } from "react";
 
-interface HeaderProps {
-  title: string;
-  children?: ReactNode;
-  className?: string;
-}
+import type { HeaderProps } from "./types";
+
 const Header: React.FC<HeaderProps> = ({ title, children, className }) => {
   return (
     <header

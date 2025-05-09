@@ -1,13 +1,6 @@
-import React from "react";
+import clsx from "clsx";
 
-export type RadioProps = {
-  id: string;
-  name: string;
-  value: string;
-  label: React.ReactNode;
-  checked?: boolean;
-  onChange?: React.ChangeEventHandler<HTMLInputElement>;
-};
+import type { RadioProps } from "./type";
 
 export default function Radio({
   id,
@@ -16,6 +9,7 @@ export default function Radio({
   label,
   checked,
   onChange,
+  className,
 }: RadioProps) {
   return (
     <label htmlFor={id} className="cursor-pointer flex items-center gap-4">
@@ -27,27 +21,19 @@ export default function Radio({
           value={value}
           checked={checked}
           onChange={onChange}
-          className="
-            peer
-            col-start-1 row-start-1
-            appearance-none shrink-0
-            w-5 h-5
-            border-2 border-[var(--color-primary)]
-            rounded-full
-            cursor-pointer
-          "
+          className={clsx(
+            "peer col-start-1 row-start-1 appearance-none shrink-0 w-5 h-5 border-2",
+            "border-[var(--color-primary)] rounded-full cursor-pointer",
+            className,
+          )}
         />
 
         <div
-          className="
-            col-start-1 row-start-1
-            w-2.5 h-2.5
-            rounded-full
-            bg-[var(--color-primary)]
-            opacity-0
-            peer-checked:opacity-100
-            transition-opacity
-          "
+          className={clsx(
+            "col-start-1 row-start-1 w-2.5 h-2.5 rounded-full",
+            "bg-[var(--color-primary)] opacity-0 peer-checked:opacity-100 transition-opacity",
+            className,
+          )}
         />
       </div>
 

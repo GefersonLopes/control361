@@ -1,22 +1,21 @@
 import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
 import { OverlayView } from "@react-google-maps/api";
+import clsx from "clsx";
 import React from "react";
 
-import type { Vehicle } from "../../../types/veicle";
+import type { MapPinProps } from "./types";
 
-export interface MapPinProps {
-  onClick?: () => void;
-  item: Vehicle;
-}
-
-const MapPin: React.FC<MapPinProps> = ({ onClick, item }) => (
+const MapPin: React.FC<MapPinProps> = ({ onClick, item, className }) => (
   <OverlayView
     key={item.id}
     position={{ lat: item.pos[0], lng: item.pos[1] }}
     mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
   >
     <div
-      className="relative flex flex-col items-center cursor-pointer"
+      className={clsx(
+        "relative flex flex-col items-center cursor-pointer",
+        className,
+      )}
       onClick={onClick}
     >
       <div
