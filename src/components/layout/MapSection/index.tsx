@@ -7,7 +7,6 @@ import MapPin from "../../ui/MapPin";
 import Spinner from "../../ui/Spinner";
 import AsyncFallback from "../AsyncFallback";
 import FallbackContainer from "../FallbackContainer";
-import MapInfoWindow from "../MapInfoWindow";
 import Title from "../Title";
 
 const containerStyle = { width: "100%", height: "100%" };
@@ -36,13 +35,13 @@ export default function MapSection() {
             zoom={12}
           >
             {vehicles.map((v) => (
-              <MapPin key={v.id} item={v} onClick={() => setSelected(v)} />
+              <MapPin
+                key={v.id}
+                item={v}
+                onClick={setSelected}
+                selected={selected}
+              />
             ))}
-
-            <MapInfoWindow
-              item={selected!}
-              onCloseClick={() => setSelected(null)}
-            />
           </GoogleMap>
         </FallbackContainer>
       </AsyncFallback>

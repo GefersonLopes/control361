@@ -1,5 +1,3 @@
-import { OverlayView } from "@react-google-maps/api";
-
 import type { MapInfoWindowProps } from "./types";
 
 export default function MapInfoWindow({
@@ -11,22 +9,19 @@ export default function MapInfoWindow({
   const { pos, placa, frota, data } = item;
   const formattedDate = new Date(data);
 
-  const getPixelOffset = (w: number, h: number) => ({
-    x: -(w / 2),
-    y: -h - 16,
-  });
-
   return (
-    <OverlayView
-      position={{ lat: pos[0], lng: pos[1] }}
-      mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
-      getPixelPositionOffset={getPixelOffset}
+    <main
+      className="absolute top-[-115px] left-1/2 transform -translate-x-1/2 z-100 cursor-default"
+      id="info-window"
     >
       <div className="relative flex flex-col items-center">
         <div className="z-10 w-[166px] bg-dark text-white rounded-lg border border-quaternary drop-shadow-lg">
           <div className="flex justify-end px-1.5">
             <button
-              onClick={onCloseClick}
+              onClick={(e) => {
+                e.stopPropagation();
+                onCloseClick();
+              }}
               className="text-2xl text-primary leading-none cursor-pointer"
             >
               x
@@ -44,6 +39,6 @@ export default function MapInfoWindow({
 
         <div className="absolute w-8 h-8 bg-quaternary rotate-45 bottom-[-6px]" />
       </div>
-    </OverlayView>
+    </main>
   );
 }

@@ -3,9 +3,15 @@ import { OverlayView } from "@react-google-maps/api";
 import clsx from "clsx";
 import React from "react";
 
+import MapInfoWindow from "../../layout/MapInfoWindow";
 import type { MapPinProps } from "./types";
 
-const MapPin: React.FC<MapPinProps> = ({ onClick, item, className }) => (
+const MapPin: React.FC<MapPinProps> = ({
+  item,
+  className,
+  onClick,
+  selected,
+}) => (
   <OverlayView
     key={item.id}
     position={{ lat: item.pos[0], lng: item.pos[1] }}
@@ -16,12 +22,12 @@ const MapPin: React.FC<MapPinProps> = ({ onClick, item, className }) => (
         "relative flex flex-col items-center cursor-pointer",
         className,
       )}
-      onClick={onClick}
+      onClick={() => onClick?.(item)}
     >
       <div
         className={`
           flex items-center justify-center
-          rounded-full w-12 h-12
+          rounded-full w-12 h-12 relative
         `}
         style={{ backgroundColor: item.color }}
       >
@@ -33,6 +39,12 @@ const MapPin: React.FC<MapPinProps> = ({ onClick, item, className }) => (
           "
           style={{ fontSize: 40 }}
         />
+        {selected?.id === item.id && (
+          <MapInfoWindow
+            item={selected!}
+            onCloseClick={() => onClick?.(null)}
+          />
+        )}
       </div>
 
       <div
