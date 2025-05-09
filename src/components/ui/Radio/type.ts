@@ -2,7 +2,8 @@ export type RadioProps = {
   id: string;
   name: string;
   value: string;
-  label: string;
+  label: React.ReactNode;
   checked?: boolean;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  className?: string;
 };
