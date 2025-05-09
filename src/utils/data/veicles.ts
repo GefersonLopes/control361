@@ -8,6 +8,9 @@ const vehicles: Vehicle[] = [
     color: "#e11d48",
     frota: "000001",
     data: new Date(),
+    tipo: "Motor",
+    modelo: "Gol",
+    status: "Em viagem",
   },
   {
     id: 2,
@@ -16,6 +19,9 @@ const vehicles: Vehicle[] = [
     color: "#3b82f6",
     frota: "000002",
     data: new Date(),
+    tipo: "Motor",
+    modelo: "Audi A3",
+    status: "Disponível",
   },
   {
     id: 3,
@@ -24,6 +30,9 @@ const vehicles: Vehicle[] = [
     color: "#10b981",
     frota: "000003",
     data: new Date(),
+    tipo: "Motor",
+    modelo: "Corsa",
+    status: "Em Mantenção",
   },
 ];
 

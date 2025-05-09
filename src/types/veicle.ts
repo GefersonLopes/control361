@@ -5,4 +5,7 @@ export interface Vehicle {
   color: string;
   frota: string;
   data: Date;
+  tipo: string;
+  modelo: string;
+  status: string;
 }

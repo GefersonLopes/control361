@@ -6,7 +6,8 @@ function Th({ children, className }: ThProps) {
   return (
     <th
       className={clsx(
-        "px-4 py-2 text-left font-medium tracking-wide",
+        "px-4 h-[55px] text-center font-semibold ",
+        "font-poppins text-sm text-white tracking-wide",
         className,
       )}
     >
