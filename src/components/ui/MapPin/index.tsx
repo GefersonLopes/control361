@@ -17,44 +17,35 @@ const MapPin: React.FC<MapPinProps> = ({
     position={{ lat: item.pos[0], lng: item.pos[1] }}
     mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
   >
-    <div
+    <button
+      type="button"
       className={clsx(
         "relative flex flex-col items-center cursor-pointer",
         className,
       )}
       onClick={() => onClick?.(item)}
     >
-      <div
-        className={`
-          flex items-center justify-center
-          rounded-full w-12 h-12 relative
-        `}
+      <span
+        className="flex items-center justify-center rounded-full w-12 h-12 relative"
         style={{ backgroundColor: item.color }}
+        aria-hidden="true"
       >
         <LocalShippingOutlinedIcon
-          className="
-            text-white border-2
-            border-white rounded-full
-            p-[5px] absolute z-10
-          "
+          className="text-white border-2 border-white rounded-full p-[5px] absolute z-10"
           style={{ fontSize: 40 }}
         />
-        {selected?.id === item.id && (
-          <MapInfoWindow
-            item={selected!}
-            onCloseClick={() => onClick?.(null)}
-          />
-        )}
-      </div>
+      </span>
 
-      <div
-        className={`
-          w-4 h-4
-          transform rotate-45 -mt-3
-        `}
+      {selected?.id === item.id && (
+        <MapInfoWindow item={selected!} onCloseClick={() => onClick?.(null)} />
+      )}
+
+      <span
+        className="w-4 h-4 transform rotate-45 -mt-3"
         style={{ backgroundColor: item.color }}
+        aria-hidden="true"
       />
-    </div>
+    </button>
   </OverlayView>
 );
 

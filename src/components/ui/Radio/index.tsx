@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-import type { RadioProps } from "./type";
+import type { RadioProps } from "./types";
 
 export default function Radio({
   id,
@@ -12,34 +12,45 @@ export default function Radio({
   className,
 }: RadioProps) {
   return (
-    <label htmlFor={id} className="cursor-pointer flex items-center gap-4">
-      <div className="grid place-items-center">
-        <input
-          type="radio"
-          id={id}
-          name={name}
-          value={value}
-          checked={checked}
-          onChange={onChange}
-          className={clsx(
-            "peer col-start-1 row-start-1 appearance-none shrink-0 w-5 h-5 border-2",
-            "border-[var(--color-primary)] rounded-full cursor-pointer",
-            className,
-          )}
-        />
+    <div className={clsx("flex items-center gap-4", className)}>
+      <input
+        type="radio"
+        id={id}
+        name={name}
+        value={value}
+        checked={checked}
+        onChange={onChange}
+        className="sr-only"
+      />
 
-        <div
+      <label
+        htmlFor={id}
+        className="flex items-center cursor-pointer select-none"
+      >
+        <span
+          aria-hidden="true"
           className={clsx(
-            "col-start-1 row-start-1 w-2.5 h-2.5 rounded-full",
-            "bg-[var(--color-primary)] opacity-0 peer-checked:opacity-100 transition-opacity",
-            className,
+            "inline-flex items-center justify-center",
+            "w-5 h-5 border-2 rounded-full",
+            "border-[var(--color-primary)]",
+            "transition-colors",
           )}
-        />
-      </div>
+        >
+          <span
+            aria-hidden="true"
+            className={clsx(
+              "w-2.5 h-2.5 rounded-full",
+              "bg-[var(--color-primary)]",
+              checked ? "opacity-100" : "opacity-0",
+              "transition-opacity",
+            )}
+          />
+        </span>
 
-      <span className="text-[var(--color-light)] select-none font-inter text-medium text-xs">
-        {label}
-      </span>
-    </label>
+        <span className="ml-2 text-xs font-inter text-[var(--color-light)]">
+          {label}
+        </span>
+      </label>
+    </div>
   );
 }

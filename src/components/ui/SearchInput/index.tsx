@@ -17,8 +17,11 @@ const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
         type="search"
         placeholder={placeholder}
         className={clsx(
-          "rounded-md border border-[#8A939D] bg-transparent px-3 text-sm font-inter placeholder:text-[#8A939D] placeholder:font-light placeholder:text-xs placeholder:text-inter",
-          "focus:border-cyan-600 focus:outline-none focus:ring-1 focus:ring-cyan-500",
+          "rounded-md border border-[#8A939D] bg-transparent",
+          "px-3 text-sm font-inter placeholder:text-[#8A939D]",
+          "placeholder:font-light placeholder:text-xs",
+          "placeholder:text-inter focus:border-cyan-600",
+          "focus:outline-none focus:ring-1 focus:ring-cyan-500",
           sizeClasses[size],
           className,
         )}
