@@ -34,11 +34,13 @@ const MapPin: React.FC<MapPinProps> = ({
       key={item.id}
       position={{ lat, lng }}
       mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
+      getPixelPositionOffset={(w, h) => ({ x: -w / 2, y: -h })}
     >
       <div
         className={clsx(
           "relative flex flex-col items-center cursor-pointer",
           className,
+          "translate-x-[-50%] translate-y-[-100%]",
         )}
         onClick={() => onClick?.(item)}
       >

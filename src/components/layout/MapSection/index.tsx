@@ -10,7 +10,7 @@ import FallbackContainer from "../FallbackContainer";
 import Title from "../Title";
 
 const containerStyle = { width: "100%", height: "100%" };
-const center = { lat: -23.55052, lng: -46.633308 };
+const center = { lat: -22.495002, lng: -47.424308 };
 
 export default function MapSection() {
   const { isLoaded, loadError } = useJsApiLoader({
@@ -18,13 +18,13 @@ export default function MapSection() {
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY!,
   });
   const [selected, setSelected] = useState<Vehicle | null>(null);
-  const { data } = useVehicles();
+  const { data, isError, isLoading } = useVehicles();
 
   return (
     <section className="mt-10 p-4 border border-slate-700/60 rounded-2xl bg-dark">
       <AsyncFallback
-        isLoading={!isLoaded}
-        isError={!!loadError}
+        isLoading={!isLoaded || isLoading}
+        isError={!!loadError || isError}
         errorContent="Erro ao carregar o mapa"
         loadingContent={<Spinner />}
       >
