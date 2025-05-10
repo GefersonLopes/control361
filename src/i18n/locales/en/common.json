@@ -1,0 +1,25 @@
+{
+  "table": {
+    "plate":   "Plate",
+    "fleet":   "Fleet",
+    "model":   "Model",
+    "type":    "Type",
+    "status":  "Status"
+  },
+
+  "vehicleType": {
+    "vehicle":   "Vehicle",
+    "implement": "Implement"
+  },
+
+  "status": {
+    "active":    "Active",
+    "inactive":  "Inactive",
+    "pending":   "Pending"
+  },
+
+  "ignition": {
+    "Ligado":    "On",
+    "Desligado": "Off"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "table": {
+    "plate": "Placa",
+    "fleet": "Frota",
+    "model": "Modelo",
+    "type": "Tipo",
+    "status": "Status"
+  },
+
+  "vehicleType": {
+    "vehicle": "Veículo",
+    "implement": "Implemento"
+  },
+
+  "status": {
+    "active": "Ativo",
+    "inactive": "Inativo",
+    "pending": "Pendente"
+  },
+
+  "ignition": {
+    "Ligado": "Ligado",
+    "Desligado": "Desligado"
+  }
+}
