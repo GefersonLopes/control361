@@ -20,6 +20,7 @@
     "@tanstack/react-query-devtools": "^5.75.7",
     "axios": "^1.9.0",
     "clsx": "^2.1.1",
+    "control361": "file:",
     "date-fns": "^4.1.0",
     "i18next": "^25.1.2",
     "react": "^19.1.0",
