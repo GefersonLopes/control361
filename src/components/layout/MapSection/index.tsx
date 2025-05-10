@@ -1,8 +1,6 @@
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
-import { useState } from "react";
 
 import { useAllVehicles } from "../../../hooks/useAllVehicles";
-import type { Vehicle } from "../../../types/veicle";
 import MapPin from "../../ui/MapPin";
 import Spinner from "../../ui/Spinner";
 import AsyncFallback from "../AsyncFallback";
@@ -17,7 +15,6 @@ export default function MapSection() {
     id: "google-map-script",
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY!,
   });
-  const [selected, setSelected] = useState<Vehicle | null>(null);
   const { data, isError, isLoading } = useAllVehicles();
 
   return (
@@ -41,8 +38,6 @@ export default function MapSection() {
                 index={i}
                 item={v}
                 locations={data.locationVehicles}
-                onClick={setSelected}
-                selected={selected}
               />
             ))}
           </GoogleMap>

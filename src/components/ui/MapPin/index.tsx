@@ -3,6 +3,7 @@ import { OverlayView } from "@react-google-maps/api";
 import clsx from "clsx";
 import React from "react";
 
+import { useMapStore } from "../../../store/mapStore";
 import type { LocationVehicle } from "../../../types/veicle";
 import { findLastByPlate } from "../../../utils/generics/findLastByPlate";
 import { getColorByIndex } from "../../../utils/generics/generateColorPalette";
@@ -13,10 +14,10 @@ const MapPin: React.FC<MapPinProps> = ({
   item,
   index,
   className,
-  onClick,
-  selected,
   locations,
 }) => {
+  const { selectedVehicle, setSelectedVehicle } = useMapStore();
+
   if (!locations || locations.length === 0) return null;
   const color = getColorByIndex(index, locations.length);
 
@@ -43,7 +44,7 @@ const MapPin: React.FC<MapPinProps> = ({
           className,
           "translate-x-[-50%] translate-y-[-100%]",
         )}
-        onClick={() => onClick?.(item)}
+        onClick={() => setSelectedVehicle(item)}
       >
         <span
           className="flex items-center justify-center rounded-full w-12 h-12 relative"
@@ -56,11 +57,11 @@ const MapPin: React.FC<MapPinProps> = ({
           />
         </span>
 
-        {selected?.id === item.id && (
+        {selectedVehicle?.id === item.id && (
           <MapInfoWindow
-            item={selected!}
+            item={selectedVehicle!}
             position={{ lat, lng }}
-            onCloseClick={() => onClick?.(null)}
+            onCloseClick={() => setSelectedVehicle(null)}
           />
         )}
 
