@@ -4,12 +4,12 @@ import { listVehiclesWithPaginate } from "../services/vehicles";
 import { useVehicleStore } from "../store/vehicleStore";
 import type { ParamsVehiclesProps, VehicleListContent } from "../types/veicle";
 
-export function useVehicles() {
-  const { page, perPage, type, filter } = useVehicleStore();
+export function useAllVehicles() {
+  const { type, filter } = useVehicleStore();
 
   const params = {
-    page,
-    perPage,
+    page: 1,
+    perPage: 100000000,
     type,
     filter,
   } as ParamsVehiclesProps;
