@@ -1,4 +1,4 @@
-export interface TdProps {
+export interface TdProps extends React.HTMLAttributes<HTMLTableCellElement> {
   children: React.ReactNode;
   className?: string;
 }

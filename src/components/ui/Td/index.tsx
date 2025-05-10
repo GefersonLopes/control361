@@ -2,7 +2,7 @@ import clsx from "clsx";
 
 import type { TdProps } from "./types";
 
-function Td({ children, className }: TdProps) {
+function Td({ children, className, ...props }: TdProps) {
   return (
     <td
       className={clsx(
@@ -10,6 +10,7 @@ function Td({ children, className }: TdProps) {
         "text-sm text-white text-normal tracking-wide font-inter",
         className,
       )}
+      {...props}
     >
       {children}
     </td>

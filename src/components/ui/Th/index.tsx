@@ -2,7 +2,7 @@ import clsx from "clsx";
 
 import type { ThProps } from "./types";
 
-function Th({ children, className }: ThProps) {
+function Th({ children, className, ...props }: ThProps) {
   return (
     <th
       className={clsx(
@@ -11,6 +11,7 @@ function Th({ children, className }: ThProps) {
         "font-poppins text-sm text-white tracking-wide",
         className,
       )}
+      {...props}
     >
       {children}
     </th>
