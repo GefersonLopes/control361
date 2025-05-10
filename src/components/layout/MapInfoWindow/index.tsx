@@ -16,11 +16,11 @@ export default function MapInfoWindow({
       id="info-window"
       role="dialog"
       aria-label="Detalhes do veículo"
-      className="absolute top-[-115px] left-1/2 transform -translate-x-1/2 z-50 cursor-default"
+      className="absolute top-[-105px] left-1/2 transform -translate-x-1/2 z-50 cursor-default"
     >
       <div className="relative flex flex-col items-center">
         <section className="z-10 w-[166px] bg-dark text-white rounded-lg border border-quaternary drop-shadow-lg">
-          <header className="flex justify-end px-1.5">
+          <header className="relative">
             <button
               type="button"
               onClick={(e) => {
@@ -28,12 +28,12 @@ export default function MapInfoWindow({
                 onCloseClick();
               }}
               aria-label="Fechar janela de informações"
-              className="text-2xl text-primary leading-none"
+              className="text-2xl text-primary leading-none cursor-pointer w-6 h-6 absolute top-0 right-0"
             >
-              &times;
+              x
             </button>
           </header>
-          <dl className="px-3 pb-2 mt-[-10px] text-[10px] font-poppins text-medium flex flex-col gap-0.5">
+          <dl className="px-3 pb-2 mt-[10px] text-[10px] font-poppins text-medium flex flex-col gap-0.5 text-center">
             <span>Placa {plate || "S/N"}</span>
             <span>Frota {fleet || "S/N"}</span>
             <span>{formatDateTime(createdAt)}</span>
