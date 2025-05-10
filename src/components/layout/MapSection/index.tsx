@@ -1,8 +1,8 @@
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import { useState } from "react";
 
+import { useVehicles } from "../../../hooks/useVehicles";
 import type { Vehicle } from "../../../types/veicle";
-import vehicles from "../../../utils/data/veicles";
 import MapPin from "../../ui/MapPin";
 import Spinner from "../../ui/Spinner";
 import AsyncFallback from "../AsyncFallback";
@@ -18,6 +18,7 @@ export default function MapSection() {
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY!,
   });
   const [selected, setSelected] = useState<Vehicle | null>(null);
+  const { data } = useVehicles();
 
   return (
     <section className="mt-10 p-4 border border-slate-700/60 rounded-2xl bg-dark">
@@ -34,10 +35,12 @@ export default function MapSection() {
             center={center}
             zoom={12}
           >
-            {vehicles.map((v) => (
+            {data?.vehicles.map((v, i) => (
               <MapPin
                 key={v.id}
+                index={i}
                 item={v}
+                locations={data.locationVehicles}
                 onClick={setSelected}
                 selected={selected}
               />

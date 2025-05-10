@@ -1,13 +1,15 @@
+import { formatDateTime } from "../../../utils/generics/formatDate";
+import { Link } from "../../ui/Link";
 import type { MapInfoWindowProps } from "./types";
 
 export default function MapInfoWindow({
   item,
   onCloseClick,
+  position,
 }: MapInfoWindowProps) {
   if (!item) return null;
 
-  const { pos, placa, frota, data } = item;
-  const formattedDate = new Date(data).toLocaleString();
+  const { plate, fleet, createdAt } = item;
 
   return (
     <aside
@@ -32,12 +34,15 @@ export default function MapInfoWindow({
             </button>
           </header>
           <dl className="px-3 pb-2 mt-[-10px] text-[10px] font-poppins text-medium flex flex-col gap-0.5">
-            <span>Placa {placa}</span>
-            <span>Frota {frota}</span>
-            <span>{formattedDate.toLocaleString()}</span>
-            <span className="border-b border-white pb-1">
-              {pos[0].toFixed(5)}, {pos[1].toFixed(5)}
-            </span>
+            <span>Placa {plate || "S/N"}</span>
+            <span>Frota {fleet || "S/N"}</span>
+            <span>{formatDateTime(createdAt)}</span>
+            <Link
+              href={`${import.meta.env.VITE_GOOGLE_MAPS_COORDINATES_URL}${position.lat},${position.lng}`}
+              target="_blank"
+            >
+              {position.lat}, {position.lng}
+            </Link>
           </dl>
         </section>
         <div
