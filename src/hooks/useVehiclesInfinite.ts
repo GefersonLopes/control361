@@ -24,6 +24,5 @@ export function useVehiclesInfinite() {
       lastPage.page < lastPage.totalPages ? lastPage.page + 1 : undefined,
 
     staleTime: 1000 * 60 * 2,
-    refetchInterval: 1000 * 60 * 2,
   });
 }
