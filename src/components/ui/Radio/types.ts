@@ -1,4 +1,5 @@
-export type RadioProps = {
+export interface RadioProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
   id: string;
   name: string;
   value: string;
@@ -6,4 +7,4 @@ export type RadioProps = {
   checked?: boolean;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   className?: string;
-};
+}

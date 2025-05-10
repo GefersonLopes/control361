@@ -17,6 +17,7 @@ const MapPin: React.FC<MapPinProps> = ({
   selected,
   locations,
 }) => {
+  if (!locations || locations.length === 0) return null;
   const color = getColorByIndex(index, locations.length);
 
   const lastLocation = findLastByPlate(locations, item.plate) as unknown as

@@ -10,6 +10,7 @@ export default function Radio({
   checked,
   onChange,
   className,
+  ...props
 }: RadioProps) {
   return (
     <div className={clsx("flex items-center gap-4", className)}>
@@ -21,6 +22,7 @@ export default function Radio({
         checked={checked}
         onChange={onChange}
         className="sr-only"
+        {...props}
       />
 
       <label
