@@ -42,9 +42,20 @@ jobs:
         env:
           DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USERNAME }}
           DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+          VITE_GOOGLE_MAPS_API_KEY:  ${{ secrets.VITE_GOOGLE_MAPS_API_KEY }}
+          VITE_API_CLIENT_KEY:       ${{ secrets.VITE_API_CLIENT_KEY }}
+          VITE_BASE_URL_API_CLIENT:  ${{ secrets.VITE_BASE_URL_API_CLIENT }}
+          VITE_GOOGLE_MAPS_COORDINATES_URL: ${{ secrets.VITE_GOOGLE_MAPS_COORDINATES_URL }}
         run: |
           docker login -u "$DOCKERHUB_USER" -p "$DOCKERHUB_TOKEN"
-          docker build -t "$DOCKERHUB_USER/my-app:${{ github.sha }}" .
+          
+          docker build \
+          --build-arg VITE_GOOGLE_MAPS_API_KEY=$VITE_GOOGLE_MAPS_API_KEY \
+          --build-arg VITE_API_CLIENT_KEY=$VITE_API_CLIENT_KEY \
+          --build-arg VITE_BASE_URL_API_CLIENT=$VITE_BASE_URL_API_CLIENT \
+          --build-arg VITE_GOOGLE_MAPS_COORDINATES_URL=$VITE_GOOGLE_MAPS_COORDINATES_URL \
+          -t "$DOCKERHUB_USER/my-app:${{ github.sha }}" .
+          
           docker push "$DOCKERHUB_USER/my-app:${{ github.sha }}"
           docker tag  "$DOCKERHUB_USER/my-app:${{ github.sha }}" "$DOCKERHUB_USER/my-app:latest"
           docker push "$DOCKERHUB_USER/my-app:latest"
