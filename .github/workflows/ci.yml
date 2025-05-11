@@ -9,6 +9,11 @@ on:
 jobs:
   ci:
     runs-on: ubuntu-latest
+    env:
+      VITE_GOOGLE_MAPS_API_KEY:       ${{ secrets.VITE_GOOGLE_MAPS_API_KEY }}
+      VITE_API_CLIENT_KEY:            ${{ secrets.VITE_API_CLIENT_KEY }}
+      VITE_BASE_URL_API_CLIENT:       ${{ secrets.VITE_BASE_URL_API_CLIENT }}
+      VITE_GOOGLE_MAPS_COORDINATES_URL: ${{ secrets.VITE_GOOGLE_MAPS_COORDINATES_URL }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
