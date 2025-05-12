@@ -28,7 +28,7 @@ jobs:
 
       - run: npm ci
       - run: npm run lint
-      # - run: npm test -- --coverage
+      - run: npm run test
       - run: npm run build
 
   deploy:

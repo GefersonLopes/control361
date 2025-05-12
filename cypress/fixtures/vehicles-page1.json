@@ -1,0 +1,48 @@
+{
+  "vehicles": [
+    {
+      "id": "1",
+      "plate": "ABC-123",
+      "fleet": "F1",
+      "type": "T1",
+      "model": "M1",
+      "status": "S1"
+    },
+    {
+      "id": "2",
+      "plate": "DEF-456",
+      "fleet": "F2",
+      "type": "T2",
+      "model": "M2",
+      "status": "S2"
+    },
+    {
+      "id": "3",
+      "plate": "GHI-789",
+      "fleet": "F3",
+      "type": "T3",
+      "model": "M3",
+      "status": "S3"
+    },
+    {
+      "id": "4",
+      "plate": "JKL-012",
+      "fleet": "F4",
+      "type": "T4",
+      "model": "M4",
+      "status": "S4"
+    },
+    {
+      "id": "5",
+      "plate": "MNO-345",
+      "fleet": "F5",
+      "type": "T5",
+      "model": "M5",
+      "status": "S5"
+    }
+  ],
+  "locationVehicles": [
+    { "lat": -22.495002, "lng": -47.424308 },
+    { "lat": -22.496, "lng": -47.425 }
+  ]
+}
