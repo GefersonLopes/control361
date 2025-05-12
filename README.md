@@ -24,8 +24,6 @@
   - [💻 CI/CD](#-cicd)
   - [🚀 Deploy no Vercel](#-deploy-no-vercel)
   - [🗂️ Estrutura de Pastas](#️-estrutura-de-pastas)
-  - [🤝 Contribuição](#-contribuição)
-  - [📝 Licença](#-licença)
 
 ---
 
@@ -59,7 +57,7 @@ Este repositório contém a aplicação **Control361**, desenvolvida em React + 
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/control361.git
+   git clone https://github.com/GefersonLopes/control361
    cd control361
    ```
 2. Instale as dependências:
@@ -201,18 +199,3 @@ control361/
     └── utils/
 ```
 
----
-
-## 🤝 Contribuição
-
-1. Fork deste repositório
-2. Crie uma branch (`git checkout -b feature/minha-feature`)
-3. Commit suas mudanças (`git commit -m 'feat: descrição'`)
-4. Push para a branch (`git push origin feature/minha-feature`)
-5. Abra um Pull Request
-
----
-
-## 📝 Licença
-
-Este projeto está licenciado sob a [MIT License](LICENSE).
