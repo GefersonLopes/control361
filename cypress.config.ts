@@ -5,7 +5,7 @@ export default defineConfig({
     baseUrl: "http://localhost:5173",
     specPattern: "cypress/e2e/**/*.cy.{js,jsx,ts,tsx}",
     supportFile: "cypress/support/e2e.ts",
-    setupNodeEvents(on, config) {
+    setupNodeEvents(_, config) {
       return config;
     },
   },
@@ -15,5 +15,6 @@ export default defineConfig({
       bundler: "vite",
     },
     specPattern: "cypress/e2e/**/*.cy.{ts,tsx}",
+    supportFile: "cypress/support/e2e.ts",
   },
 });

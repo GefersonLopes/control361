@@ -4,41 +4,48 @@ import { fireEvent, render, screen } from "@testing-library/react";
 
 import Button from "../Button";
 
-describe("Button component", () => {
-  it("renders with default variant (primary) e tamanho md", () => {
-    render(<Button>Entrar</Button>);
-
-    const btn = screen.getByRole("button", { name: /entrar/i });
-    expect(btn).toHaveClass(
-      "rounded-lg",
-      "bg-primary",
-      "px-5",
-      "py-1.5",
-      "text-sm",
-    );
-  });
-
-  it("aceita variantes e tamanhos customizados", () => {
+describe("Button component – testes adicionais", () => {
+  it("fica desabilitado quando `disabled` é true e não dispara onClick", () => {
+    const handleClick = jest.fn();
     render(
-      <Button variant="secondary" size="lg">
-        Click me
+      <Button disabled onClick={handleClick}>
+        Não posso
       </Button>,
     );
-
-    const btn = screen.getByRole("button", { name: /click me/i });
-    expect(btn).toHaveClass("bg-secondary", "px-6", "py-2", "text-base");
+    const btn = screen.getByRole("button", { name: /não posso/i });
+    expect(btn).toBeDisabled();
+    fireEvent.click(btn);
+    expect(handleClick).not.toHaveBeenCalled();
   });
 
-  it("dispara o onClick quando clicado", () => {
-    const handleClick = jest.fn();
-    render(<Button onClick={handleClick}>OK</Button>);
+  it("usa `type='button'` por padrão e permite sobrescrever para `submit`", () => {
+    render(<Button>Default</Button>);
+    expect(screen.getByRole("button")).toHaveAttribute("type", "button");
 
-    fireEvent.click(screen.getByRole("button", { name: /ok/i }));
-    expect(handleClick).toHaveBeenCalledTimes(1);
+    render(<Button type="submit">Enviar</Button>);
+    expect(screen.getByRole("button", { name: /enviar/i })).toHaveAttribute(
+      "type",
+      "submit",
+    );
   });
 
-  it("aplica className adicional passada via props", () => {
-    render(<Button className="minha-classe">Teste</Button>);
-    expect(screen.getByRole("button")).toHaveClass("minha-classe");
+  it("propaga atributos HTML arbitrários (`aria-label`, `data-*`, etc.)", () => {
+    render(
+      <Button aria-label="Fechar diálogo" data-testid="btn-123">
+        X
+      </Button>,
+    );
+    const btn = screen.getByTestId("btn-123");
+    expect(btn).toHaveAttribute("aria-label", "Fechar diálogo");
+    expect(btn).toHaveTextContent("X");
+  });
+
+  it("combina com o snapshot", () => {
+    const { asFragment } = render(
+      <Button variant="tertiary" size="sm">
+        Snap
+      </Button>,
+    );
+    expect(asFragment()).toMatchSnapshot();
   });
 });

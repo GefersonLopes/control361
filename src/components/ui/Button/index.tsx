@@ -5,6 +5,7 @@ import type { ButtonProps } from "./types";
 export default function Button({
   variant = "primary",
   size = "md",
+  type = "button",
   className,
   children,
   ...props
@@ -27,6 +28,7 @@ export default function Button({
 
   return (
     <button
+      type={type}
       className={clsx(base, variants[variant], sizes[size], className)}
       {...props}
     >
