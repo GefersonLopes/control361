@@ -10,7 +10,9 @@
     "test": "jest --coverage",
     "test:watch": "jest --watch",
     "preview": "vite preview",
-    "prepare": "husky"
+    "prepare": "husky",
+    "cypress:open": "cross-env TS_NODE_PROJECT=tsconfig.cypress.json cypress open",
+    "cypress:run": "cross-env TS_NODE_PROJECT=tsconfig.cypress.json cypress run"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -51,6 +53,7 @@
     "@typescript-eslint/parser": "^8.32.0",
     "@vitejs/plugin-react": "^4.4.1",
     "autoprefixer": "^10.4.21",
+    "cross-env": "^7.0.3",
     "cypress": "^14.3.3",
     "esbuild": "^0.25.4",
     "eslint": "^9.26.0",
